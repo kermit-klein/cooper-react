@@ -24,5 +24,20 @@ const saveData = async (result, entryHandler) => {
     alert("Something went wrong");
   }
 };
+const getData = async () => {
+  let headers = await sessionStorage.getItem("credentials");
+  headers = JSON.parse(headers);
+  headers = {
+    ...headers,
+    "Content-type": "application/json",
+    Accept: "application/json",
+  };
 
-export { saveData };
+  const response = await axios.get("/performance_data", {
+    headers: headers,
+  });
+
+  return response;
+};
+
+export { getData, saveData };
