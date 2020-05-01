@@ -5,6 +5,8 @@ import LoginForm from "./components/LoginForm";
 import { authenticate } from "./modules/auth";
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
 import { Container, Button, Icon, Header } from "semantic-ui-react";
+import { fadeIn } from "react-animation";
+import styled, { keyframes } from "styled-components";
 
 class App extends Component {
   state = {
@@ -39,6 +41,9 @@ class App extends Component {
   };
 
   render() {
+    const FadeIn = styled.div`
+      animation: 6s ${keyframes`${fadeIn}`};
+    `;
     const { renderLoginForm, authenticated, message } = this.state;
     let renderLogin;
     let performanceDataIndex;
@@ -89,9 +94,11 @@ class App extends Component {
           );
         }
         renderLogin = (
-          <Header as="h2" textAlign="center" id="message">
-            Hi, {JSON.parse(sessionStorage.getItem("credentials")).uid}
-          </Header>
+          <FadeIn>
+            <Header as="h2" textAlign="center" id="message">
+              Hi, {JSON.parse(sessionStorage.getItem("credentials")).uid}
+            </Header>
+          </FadeIn>
         );
         break;
       default:
