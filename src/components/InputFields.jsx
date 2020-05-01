@@ -12,6 +12,7 @@ const InputFields = ({ onChangeHandler, onChangeHandler1 }) => {
             label="Distance"
             placeholder="Distance in m"
             name="distance"
+            id="distance"
           />
           <Form.Input
             onChange={onChangeHandler}
@@ -19,6 +20,7 @@ const InputFields = ({ onChangeHandler, onChangeHandler1 }) => {
             label="Age"
             placeholder="Age in years"
             name="age"
+            id="age"
           />
           <Form.Select
             onChange={onChangeHandler1}
@@ -30,6 +32,7 @@ const InputFields = ({ onChangeHandler, onChangeHandler1 }) => {
               { key: "female", text: "Female", value: "female" },
             ]}
             placeholder="Gender"
+            id="gender"
           />
         </Form.Group>
       </Form>

@@ -4,7 +4,7 @@ import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
 import { authenticate } from "./modules/auth";
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
-import { Container, Button } from "semantic-ui-react";
+import { Container, Button, Icon } from "semantic-ui-react";
 
 class App extends Component {
   state = {
@@ -100,7 +100,11 @@ class App extends Component {
     }
     return (
       <>
-        <Container>
+        <Container style={{ marginTop: 50, width: 800 }}>
+          <h1>
+            <Icon name="child" size="large" />
+            Your Personal Cooper Database
+          </h1>
           <InputFields
             onChangeHandler={this.onChangeHandler}
             onChangeHandler1={this.onChangeHandler1}

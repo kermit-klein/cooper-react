@@ -3,14 +3,22 @@ import { Button, Form, Segment } from "semantic-ui-react";
 
 const LoginForm = (props) => {
   return (
-    <form onSubmit={props.submitFormHandler} id="login-form">
-      <label>Email</label>
-      <input name="email" type="email" id="email"></input>
-
-      <label>Password</label>
-      <input name="password" type="password" id="password"></input>
-      <button id="submit">Submit</button>
-    </form>
+    <Segment inverted>
+      <Form inverted onSubmit={props.submitFormHandler} id="login-form">
+        <Form.Group widths="equal">
+          <Form.Input label="Email" name="email" type="email" id="email" />
+          <Form.Input
+            label="Password"
+            name="password"
+            type="password"
+            id="password"
+          />
+        </Form.Group>
+        <Button type="submit" id="submit">
+          Login
+        </Button>
+      </Form>
+    </Segment>
   );
 };
 
