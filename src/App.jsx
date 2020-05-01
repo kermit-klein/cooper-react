@@ -4,11 +4,12 @@ import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
 import { authenticate } from "./modules/auth";
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
+import { Container, Button } from "semantic-ui-react";
 
 class App extends Component {
   state = {
     distance: "",
-    gender: "female",
+    gender: "male",
     age: "",
     renderLoginForm: false,
     authenticated: false,
@@ -21,6 +22,8 @@ class App extends Component {
   onChangeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value, entrySaved: false });
   };
+
+  onChangeHandler1 = (e, { name, value }) => this.setState({ [name]: value });
 
   onLogin = async (e) => {
     e.preventDefault();
@@ -46,12 +49,13 @@ class App extends Component {
       case !renderLoginForm && !authenticated:
         renderLogin = (
           <>
-            <button
+            <Button
+              color="blue"
               id="login"
               onClick={() => this.setState({ renderLoginForm: true })}
             >
               Login
-            </button>
+            </Button>
             <p id="message">{message}</p>
           </>
         );
@@ -64,19 +68,24 @@ class App extends Component {
                 updateIndex={this.state.updateIndex}
                 indexUpdated={() => this.setState({ updateIndex: false })}
               />
-              <button onClick={() => this.setState({ renderIndex: false })}>
+
+              <Button
+                color="teal"
+                onClick={() => this.setState({ renderIndex: false })}
+              >
                 Hide past entries
-              </button>
+              </Button>
             </>
           );
         } else {
           performanceDataIndex = (
-            <button
+            <Button
+              color="teal"
               id="show-index"
               onClick={() => this.setState({ renderIndex: true })}
             >
               Show past entries
-            </button>
+            </Button>
           );
         }
         renderLogin = (
@@ -91,19 +100,24 @@ class App extends Component {
     }
     return (
       <>
-        <InputFields onChangeHandler={this.onChangeHandler} />
-        {renderLogin}
-        <DisplayCooperResult
-          distance={this.state.distance}
-          gender={this.state.gender}
-          age={this.state.age}
-          authenticated={this.state.authenticated}
-          entrySaved={this.state.entrySaved}
-          entryHandler={() =>
-            this.setState({ entrySaved: true, updateIndex: true })
-          }
-        />
-        {performanceDataIndex}
+        <Container>
+          <InputFields
+            onChangeHandler={this.onChangeHandler}
+            onChangeHandler1={this.onChangeHandler1}
+          />
+          {renderLogin}
+          <DisplayCooperResult
+            distance={this.state.distance}
+            gender={this.state.gender}
+            age={this.state.age}
+            authenticated={this.state.authenticated}
+            entrySaved={this.state.entrySaved}
+            entryHandler={() =>
+              this.setState({ entrySaved: true, updateIndex: true })
+            }
+          />
+          {performanceDataIndex}
+        </Container>
       </>
     );
   }
