@@ -4,7 +4,7 @@ import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
 import { authenticate } from "./modules/auth";
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
-import { Container, Button, Icon } from "semantic-ui-react";
+import { Container, Button, Icon, Header } from "semantic-ui-react";
 
 class App extends Component {
   state = {
@@ -89,9 +89,9 @@ class App extends Component {
           );
         }
         renderLogin = (
-          <p id="message">
-            Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
-          </p>
+          <Header as="h2" textAlign="center" id="message">
+            Hi, {JSON.parse(sessionStorage.getItem("credentials")).uid}
+          </Header>
         );
         break;
       default:
