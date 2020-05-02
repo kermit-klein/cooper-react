@@ -30,7 +30,7 @@ const DisplayCooperResult = ({
               <Button
                 color="teal"
                 id="save-result"
-                onClick={() => saveData(result, entryHandler)}
+                onClick={() => saveData(result, distance, entryHandler)}
               >
                 Save entry
               </Button>

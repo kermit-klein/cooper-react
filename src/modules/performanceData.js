@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const saveData = async (result, entryHandler) => {
+const saveData = async (result, distance, entryHandler) => {
   let headers = sessionStorage.getItem("credentials");
   headers = JSON.parse(headers);
   headers = {
@@ -12,7 +12,7 @@ const saveData = async (result, entryHandler) => {
     await axios.post(
       "/performance_data",
       {
-        performance_data: { data: { message: result } },
+        performance_data: { data: { message: result, distance: distance } },
       },
       {
         headers: headers,
