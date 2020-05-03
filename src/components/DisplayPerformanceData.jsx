@@ -133,7 +133,10 @@ class DisplayPerformanceData extends Component {
                 data={pieChartData}
                 width={50}
                 height={200}
-                options={{ maintainAspectRatio: false }}
+                options={{
+                  maintainAspectRatio: false,
+                  legend: { display: true, position: "left" },
+                }}
               />
             </Grid.Column>
             <Grid.Column>
