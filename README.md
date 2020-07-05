@@ -6,6 +6,7 @@
 
 ### Author
 [Ali Erbay](https://github.com/kermit-klein)
+[Jenny Scherr](https://github.com/jysmys)
 
 ### Deployed At
 
