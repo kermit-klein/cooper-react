@@ -1,5 +1,7 @@
 # Cooper React
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a2fde8d9-ddf6-437e-90ad-93105ae28c9f/deploy-status)](https://app.netlify.com/sites/frosty-perlman-b731b4/deploys)
+
 ### Author
 [Ali Erbay](https://github.com/kermit-klein)
 
